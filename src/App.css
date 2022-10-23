@@ -1,0 +1,151 @@
+body {
+    padding: 0 15%;
+  }
+  
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em; 
+    background-color: #1c1c1c;
+}
+
+.link {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 .6em;
+    padding: 0 .4em;
+}
+
+.link:hover {
+    color: #000000;
+    background: #edede9;
+    border-radius: .3em;
+}
+
+.nav-btn {
+    color: #FFFFFF;
+    background: #4b4b4b;
+    padding: .4em .8em;
+    margin: 0 .1em;
+    border: none;
+    border-radius: .3em;
+}
+
+.nav-btn:hover {
+    color: #000000;
+    background: #edede9;
+}
+
+.pokemons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pokemon-row {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    background: #FFFFFF;
+    border: 2px solid #8a897c;
+    border-radius: 8px;
+    margin: 2% 0;
+}
+
+.pokemon-col {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background: #FFFFFF;
+    border: 2px solid #8a897c;
+    border-radius: 8px;
+    margin: 1% 0;
+}
+
+.pokemon-row-header{
+    margin: 5px 15px 0 auto;
+}
+
+.pokemon-col-header{
+    margin-left: 5px;
+}
+
+.pokemon-row-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.pokemon-col-img {
+    width: 70px;
+    height: 70px;
+    margin-left: 15px;
+}
+
+.pokemon-row-footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 25%;
+    border-radius: 0 0 7px 7px;
+
+    background: #edede9;
+
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    color: #000000;
+}
+
+.pokemon-col-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 7px 7px;
+    margin-left: 15px;
+
+    background: #edede9;
+
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    color: #000000;
+}
+
+.pokemon-name {
+    font-size: 20px;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.pokemon-types {
+    font-size: 10px;
+    margin: 0;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.pokemon-footer-favorite {
+    height: 29px;
+    width: 30px;
+    border-radius: 40px;
+    margin-right: 10px;
+}
