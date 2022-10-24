@@ -1,5 +1,7 @@
 import React, {useContext, useState} from 'react'
 import {Link} from 'react-router-dom'
+import { BsFillGridFill, BsList } from 'react-icons/bs'
+
 import Pokemon from '../components/PokemonCard'
 
 import {Context} from '../Context'
@@ -25,8 +27,8 @@ export default function Home(){
                     <Link onClick={getFavorite} className='link' to='/favorite'>Favorite</Link>
                 </div>
                 <div>
-                    <button className='nav-btn' onClick={toggleGrid}>Grid</button>
-                    <button className='nav-btn' onClick={toggleList}>List</button>
+                    <BsFillGridFill className='nav-btn' onClick={toggleGrid}/>
+                    <BsList className='nav-btn' onClick={toggleList}/>
                 </div>
             </nav>
 

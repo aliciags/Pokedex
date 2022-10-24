@@ -1,15 +1,14 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import {Context} from '../Context'
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 function Pokemon({pokemon, className}) {
 
-    let [fav, setFav] = React.useState(pokemon.isFavorite)
     const {toggleFavPokemon, toggleUnFavPokemon} = useContext(Context)
 
     function handleClick(id){
-        fav ? toggleUnFavPokemon(id) : toggleFavPokemon(id)
-        setFav( prevFav => !prevFav)
+        pokemon.isFavorite ? toggleUnFavPokemon(id) : toggleFavPokemon(id)
     }
 
     return (
@@ -23,7 +22,9 @@ function Pokemon({pokemon, className}) {
                     <h1 className="pokemon-name">{pokemon.name}</h1>
                     <p className="pokemon-types">{pokemon.types.join(', ')}</p>
                 </div>
-                <button className="pokemon-footer-favorite" onClick={() => handleClick(pokemon.id)}>{fav ? 'Y' : 'N'}</button>    
+                {pokemon.isFavorite ?
+                <AiFillStar className='pokemon-footer-favorite' onClick={() => handleClick(pokemon.id)}/>:
+                <AiOutlineStar className='pokemon-footer-favorite' onClick={() => handleClick(pokemon.id)}/>}
             </footer>
         </div>
     )
