@@ -1,13 +1,13 @@
 import React, {createContext, useState, useEffect} from 'react';
 import axios from 'axios'
 
-import Pokemon from './components/PokemonCard'
 
 const Context = createContext();
 
 function ContextProvider(props){
 
     const [pokemons, setPokemons] = useState([])
+    const [pokemon, setPokemon] = useState([])
     const [favorite, setFavorite] = useState(false)
     const [changing, setChanging] = useState(false)
     const [list, setList] = useState(false)
@@ -43,6 +43,17 @@ function ContextProvider(props){
         setList(false)
     }
 
+    function getPokemonDetails(id){
+        let url = path + id
+
+        axios.get(url)
+            .then( (response) => {
+            setPokemon(response.data)
+            }).catch( (error) => {
+            console.log(error)
+            })
+    }
+
     function toggleFavPokemon(id){
         
         axios.post(path + id + '/favorite')
@@ -55,6 +66,12 @@ function ContextProvider(props){
                     isFavorite: response.data.isFavorite} : 
                     pokemon
                 ))
+            ))
+            setPokemon(prevPokemon => (
+                prevPokemon.id === id ?
+                {...prevPokemon, 
+                isFavorite: !prevPokemon.isFavorite} :
+                prevPokemon
             ))
             setChanging(prevChanging => !prevChanging)}
             ).catch( (error) => {
@@ -76,6 +93,12 @@ function ContextProvider(props){
                     pokemon
                 ))
             ))
+            setPokemon(prevPokemon => (
+                prevPokemon.id === id ?
+                {...prevPokemon, 
+                isFavorite: !prevPokemon.isFavorite} :
+                prevPokemon
+            ))
             setChanging(prevChanging => !prevChanging)}
             ).catch( (error) => {
             console.log(error)
@@ -83,7 +106,7 @@ function ContextProvider(props){
     }
 
     return (
-        <Context.Provider value={{pokemons, list, getAll, getFavorite, toggleFavPokemon, toggleUnFavPokemon, toggleList, toggleGrid}}>
+        <Context.Provider value={{pokemon, pokemons, list, getAll, getFavorite, getPokemonDetails, toggleFavPokemon, toggleUnFavPokemon, toggleList, toggleGrid}}>
             {props.children}
         </Context.Provider>
     );
